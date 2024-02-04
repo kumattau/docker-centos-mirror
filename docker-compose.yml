@@ -10,6 +10,8 @@ services:
   httpd:
     build: "https://github.com/kumattau/docker-squid.git"
     restart: "unless-stopped"
+    ports:
+      - "80:80"
     volumes:
-      - "./centos-mirror.pl:/web/cgi-bin/centos-mirror.pl:ro,z"
-    command: sh -c 'httpd -f -h /web & trap "kill $$$$; exit" TERM; wait'
+      - "./centos-mirror.pl:/usr/local/squid/var/lib/squid/cgi-bin/centos-mirror.pl:ro,z"
+    command: sh -c 'httpd -f -h /usr/local/squid/var/lib/squid & trap "kill $$$$; exit" TERM; wait'

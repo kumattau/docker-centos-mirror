@@ -53,6 +53,12 @@ You can get the self-signed certificate as follows:
 $ docker compose exec -ti squid cat /usr/local/squid/var/lib/squid/ssl-bump.crt
 ```
 
+or
+
+```
+$ curl http://172.17.0.1/ssl-bump.crt
+```
+
 You can change repository by `REPOURL` environment variable.
 
 ## Notice
